@@ -6,8 +6,8 @@ import { AppComponent } from './app.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { Ng5SliderModule } from 'ng5-slider';
 import { HttpClientModule } from '@angular/common/http';
-// import { NgSelectModule } from '@ng-select/ng-select';
-// import { FormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,8 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     Ng5SliderModule,
     HttpClientModule,
-    // NgSelectModule,
-    // FormsModule
+    NgSelectModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

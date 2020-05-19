@@ -201,10 +201,10 @@
 
 <div class="content" role="main">
   <div class="card-container">
-    <h2 class="drop-down-text">Host country</h2>
-    <ng-select [items]="hostCountries" [(ngModel)]="selectedHostCountry" (change)="countrySelected($event)" class="drop-down"></ng-select>
     <h2 class="drop-down-text">Year</h2>
     <ng-select [items]="years" [(ngModel)]="selectedYear" class="drop-down"></ng-select>
+    <h2 class="drop-down-text">Host country</h2>
+    <ng-select [items]="hostCountries" [(ngModel)]="selectedHostCountry" (change)="countrySelected($event)" class="drop-down"></ng-select>    
     <h2 class="drop-down-text">Ground</h2>
     <ng-select [items]="grounds" [(ngModel)]="selectedGround"  class="drop-down"></ng-select>
   </div>

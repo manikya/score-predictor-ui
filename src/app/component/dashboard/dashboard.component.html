@@ -1,0 +1,124 @@
+<div class="container" style="margin-top: 10px" role="main">
+
+  <div class="jumbotron">
+    <div class="well well-small">
+<!--      <mat-card>-->
+        <h1>DL Prediction = {{predictionResult?.prediction?.dlPrediction}} </h1>
+        <h1> Score Prediction = {{predictionResult?.prediction?.score}}</h1>
+<!--      </mat-card>-->
+    </div>
+  </div>
+
+
+  <div class="row">
+    <mat-card class="col-md-3">
+      <h2 class="drop-down-text">Year</h2>
+      <ng-select [items]="years" [(ngModel)]="selectedYear" class="drop-down"></ng-select>
+      <h2 class="drop-down-text">Host country</h2>
+      <ng-select [items]="hostCountries" [(ngModel)]="selectedHostCountry" (change)="countrySelected($event)"
+                 class="drop-down"></ng-select>
+      <h2 class="drop-down-text">Ground</h2>
+      <ng-select [items]="grounds" [(ngModel)]="selectedGround" class="drop-down"></ng-select>
+    </mat-card>
+
+    <span class="col-md-1"></span>
+
+    <mat-card class="col-md-3">
+      <h2 class="drop-down-text">Batting Team</h2>
+      <ng-select [items]="teams" [(ngModel)]="battingTeam" class="drop-down"></ng-select>
+      <h2 class="drop-down-text">Bowling Team </h2>
+      <ng-select [items]="teams" [(ngModel)]="ballingTeam" class="drop-down bowling-team"></ng-select>
+      <button mat-raised-button color="primary" (click)="setDefaults()" tabindex="0">Set Average Values</button>
+    </mat-card>
+
+    <div class="col-md-1">
+
+    </div>
+
+  </div>
+
+  <div style="height: 30px"></div>
+
+  <div class="row slider-score">
+    <div class="col-md-3">
+      <b>End of 30 overs   {{valueObject.score_30}} / {{valueObject.wickets_30}}</b>
+    </div>
+    <div class="col-md-3">
+      <b>Runs</b>
+      <ng5-slider [(value)]="valueObject.score_30" [options]="sliderOptions.ov30op" class="score"></ng5-slider>
+    </div>
+    <div class="col-md-3">
+      <b>Wickets</b>
+      <ng5-slider [(value)]="valueObject.wickets_30" [options]="sliderOptions.wkt30op" class="wicket"></ng5-slider>
+    </div>
+  </div>
+  <div class="row slider-score">
+    <div class="col-md-3">
+      <b class="end-of-overs-txt">End of 25 overs   {{valueObject.score_25}} / {{valueObject.wickets_25}}</b>
+    </div>
+    <div class="col-md-3">
+      <b>Runs</b>
+      <ng5-slider [(value)]="valueObject.score_25" [options]="sliderOptions.ov25op" class="score"></ng5-slider>
+    </div>
+    <div class="col-md-3">
+      <b>Wickets</b>
+      <ng5-slider [(value)]="valueObject.wickets_25" [options]="sliderOptions.wkt25op" class="wicket"></ng5-slider>
+    </div>
+  </div>
+  <div class="row slider-score">
+    <div class="col-md-3">
+      <b class="end-of-overs-txt">End of 20 overs   {{valueObject.score_20}} / {{valueObject.wickets_20}}</b>
+    </div>
+    <div class="col-md-3">
+      <b>Runs</b>
+      <ng5-slider [(value)]="valueObject.score_20" [options]="sliderOptions.ov20op" class="score"></ng5-slider>
+    </div>
+    <div class="col-md-3">
+      <b>Wickets</b>
+      <ng5-slider [(value)]="valueObject.wickets_20" [options]="sliderOptions.wkt20op" class="wicket"></ng5-slider>
+    </div>
+  </div>
+  <div class="row slider-score">
+    <div class="col-md-3">
+      <b class="end-of-overs-txt">End of 15 overs   {{valueObject.score_15}} / {{valueObject.wickets_15}}</b>
+    </div>
+    <div class="col-md-3">
+      <b>Runs</b>
+      <ng5-slider [(value)]="valueObject.score_15" [options]="sliderOptions.ov15op" class="score"></ng5-slider>
+    </div>
+    <div class="col-md-3">
+      <b>Wickets</b>
+      <ng5-slider [(value)]="valueObject.wickets_15" [options]="sliderOptions.wkt15op" class="wicket"></ng5-slider>
+    </div>
+  </div>
+  <div class="row slider-score">
+    <div class="col-md-3">
+      <b class="end-of-overs-txt">End of 10 overs   {{valueObject.score_10}} / {{valueObject.wickets_10}}</b>
+    </div>
+    <div class="col-md-3">
+      <b>Runs</b>
+      <ng5-slider [(value)]="valueObject.score_10" [options]="sliderOptions.ov10op" class="score"></ng5-slider>
+    </div>
+    <div class="col-md-3">
+      <b>Wickets</b>
+      <ng5-slider [(value)]="valueObject.wickets_10" [options]="sliderOptions.wkt10op" class="wicket"></ng5-slider>
+    </div>
+  </div>
+  <div class="row slider-score">
+    <div class="col-md-3">
+      <b class="end-of-overs-txt">End of 5 overs wickets {{valueObject.wickets_10}}</b>
+    </div>
+    <div class="col-md-3">
+      <b>Wickets</b>
+      <ng5-slider [(value)]="valueObject.wickets_5" [options]="sliderOptions.wkt5op" class="wicket"></ng5-slider>
+    </div>
+  </div>
+  <div class="row slider-score">
+    <div class="col-md-3 float-right">
+      <button class="float-md-right" mat-raised-button color="primary" (click)="calculateScore()">Predict Score</button>
+    </div>
+  </div>
+
+
+  <div style="height: 100px"></div>
+</div>

@@ -39,10 +39,10 @@ export class DefaultsService {
   getPrediction(data: PredictParams,bat:string,bow:string,year:string,ground:string): Observable<PredictionResult> {
     let query = 'bat='+bat+'&bowl='+bow+'&Year='+year+'&groundId='+this.getGroungId(ground)
     +'&score_10='+data.score_10
-    +'&score_15='+data.score_10
-    +'&score_20='+data.score_10
-    +'&score_25='+data.score_10
-    +'&score_30='+data.score_10
+    +'&score_15='+data.score_15
+    +'&score_20='+data.score_20
+    +'&score_25='+data.score_25
+    +'&score_30='+data.score_30
     +'&wickets_5='+data.wickets_5
     +'&wickets_10='+data.wickets_10
     +'&wickets_15='+data.wickets_15

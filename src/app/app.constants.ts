@@ -10,5 +10,5 @@ export const appApiResources = {
 }
 
 function createUrl(actionName: string): string {
-    return `http://192.168.1.108:5000/${actionName}`;
+    return `http://13.229.105.42:5000/${actionName}`;
   }

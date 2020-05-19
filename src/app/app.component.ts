@@ -17,10 +17,8 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.valueObject = new PredictParams();
     this.sliderOptions = new SliderOptions();
-    this.defaultsService.getHostCountries().subscribe(data => { this.hostCountries = data; this.selectedHostCountry = this.hostCountries[0]; this.countrySelected(this.selectedHostCountry); });
-    this.defaultsService.getYears().subscribe(data => { this.years = data; this.selectedYear = data[0] });
-    this.defaultsService.getTeams().subscribe(data => { this.teams = data; this.battingTeam = data[0]; this.ballingTeam = data[1] });
-   
+
+    this.loadValues();    
 
     console.log(this.hostCountries);
   }
@@ -42,23 +40,23 @@ export class AppComponent implements OnInit {
   ballingTeam: string;
   teams: string[];
 
-  predictionResult:PredictionResult = new PredictionResult();
+  predictionResult: PredictionResult = new PredictionResult();
 
   countrySelected(event) {
     this.grounds = [];
     this.defaultsService.getGround(event).subscribe(data => { this.grounds = this.mapGrounds(data); this.selectedGround = this.grounds[0]; });
-    
+
     console.log(event);
   }
 
-  setDefaults(){
+  setDefaults() {
     console.log("set dfaults Clicked");
-    this.defaultsService.getDefaults(this.battingTeam,this.ballingTeam,this.selectedYear,this.selectedGround).subscribe(data=> {console.log(data); this.valueObject=data});
+    this.defaultsService.getDefaults(this.battingTeam, this.ballingTeam, this.selectedYear, this.selectedGround).subscribe(data => { console.log(data); this.valueObject = data });
   }
 
   calculateScore() {
     console.log("score Clicked");
-    this.defaultsService.getPrediction(this.valueObject,this.battingTeam,this.ballingTeam,this.selectedYear,this.selectedGround).subscribe(data =>{ 
+    this.defaultsService.getPrediction(this.valueObject, this.battingTeam, this.ballingTeam, this.selectedYear, this.selectedGround).subscribe(data => {
       console.log(data);
       this.predictionResult = data;
     });
@@ -71,6 +69,24 @@ export class AppComponent implements OnInit {
       array.push(element.groundName);
     }
     return array;
+  }
+
+  loadValues() {
+    this.defaultsService.getHostCountries().subscribe(data => {
+      this.hostCountries = data; this.selectedHostCountry = this.hostCountries[0]; this.countrySelected(this.selectedHostCountry);
+      this.defaultsService.getYears().subscribe(data => {
+        this.years = data; this.selectedYear = data[data.length-1];
+        this.defaultsService.getTeams().subscribe(data => {
+          this.teams = data; this.battingTeam = data[0]; this.ballingTeam = data[1];
+          this.defaultsService.getDefaults(this.battingTeam, this.ballingTeam, this.selectedYear, this.selectedGround).subscribe(data => {
+            console.log(data); this.valueObject = data;
+            this.calculateScore();
+          });
+        });
+      });
+    });
+
+
   }
 
 }

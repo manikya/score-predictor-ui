@@ -1,0 +1,56 @@
+.wicket{
+    /* display: inline-flexbox; */
+    /* max-width: 500px; */
+    float: right;
+    background: red;
+    width: 13%;
+    margin-left: 20px;
+    
+    /* height: 100px; */
+}
+
+.score{
+    /* display: inline-flexbox; */
+    /* max-width: 800px; */
+    /* float: right; */
+    padding-right: 5px;
+    margin-right: 100px;
+    margin-left: 20px;
+    width: 45%;
+    background: blue;
+    float: left;
+    /* height: 100px; */
+}
+
+.value-holder{
+    /* display: inline; */
+    height: 100px;
+    background: yellow;
+    width: 1000px;
+    /* display: flex; */
+}
+
+.end-of-overs-txt{
+    margin-right: 100px;
+}
+
+.drop-down{
+    width: 15%;
+    margin-left: 30px;
+}
+
+.drop-down-text{
+    -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+    margin-left: 50px;
+    margin-right: 30px;
+}
+
+.bowling-team{
+    margin-right: 150px;
+}
+
+.set-averag-btn{
+    
+
+}

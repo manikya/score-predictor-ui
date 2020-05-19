@@ -1,24 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { Options } from 'ng5-slider';
-import { PredictParams } from './model/PredictParams';
-import { SliderOptions } from './model/SliderOptions';
-import { DefaultsService } from './defaults.service';
-import { Ground } from './model/Ground';
-import { PredictionResult } from './model/Predict Result';
+import {DefaultsService} from "../../service/defaults.service";
+import {PredictParams} from "../../model/PredictParams";
+import {SliderOptions} from "../../model/SliderOptions";
+import {PredictionResult} from "../../model/Predict Result";
+import {Ground} from "../../model/Ground";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
-export class AppComponent implements OnInit {
+export class DashboardComponent implements OnInit {
+
   constructor(private defaultsService: DefaultsService) { }
 
   ngOnInit(): void {
     this.valueObject = new PredictParams();
     this.sliderOptions = new SliderOptions();
 
-    this.loadValues();    
+    this.loadValues();
 
     console.log(this.hostCountries);
   }
@@ -88,5 +88,6 @@ export class AppComponent implements OnInit {
 
 
   }
+
 
 }

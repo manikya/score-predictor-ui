@@ -1,0 +1,15 @@
+.toolbar {
+  height: 60px;
+  margin: -8px;
+  display: flex;
+  align-items: center;
+  background-color: #1976d2;
+  color: white;
+  font-weight: 600;
+
+  /*overflow: hidden;*/
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10000;
+}

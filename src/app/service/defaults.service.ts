@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { appApiResources } from './app.constants';
-import { Ground } from './model/Ground';
-import { PredictParams } from './model/PredictParams';
-import { PredictionResult } from './model/Predict Result';
+import { appApiResources } from '../app.constants';
+import { Ground } from '../model/Ground';
+import { PredictParams } from '../model/PredictParams';
+import { PredictionResult } from '../model/Predict Result';
 @Injectable({
   providedIn: 'root'
 })
